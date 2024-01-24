@@ -1,4 +1,5 @@
-// g++ -O2 -std=c++11 -lopencv_imgproc -lopencv_highgui -lopencv_photo -lopencv_core -o deskew deskew.cpp
+// sudo apt install libopencv-imgproc-dev libopencv-highgui-dev libopencv-photo-dev libopencv-core-dev
+// g++ -O2 -std=c++11 -lopencv_imgproc -lopencv_highgui -lopencv_photo -lopencv_core -lopencv_imgcodecs -o deskew deskew.cpp
 
 #include <iostream>
 #include <vector>
@@ -43,7 +44,7 @@ Vec2f findBottom(Mat img)
 	}
 
 	Mat m1(yCount, skewCount, CV_32FC1, result);
-	Mat m2(yCount, skewCount, CV_32FC1, 0, skewCount*sizeof(float));
+	Mat m2 = Mat::zeros(yCount, skewCount, CV_32FC1);
 	GaussianBlur(m1, m2, Size(5, 5), 0);
 	free(result);
 	result = (float *)m2.ptr();

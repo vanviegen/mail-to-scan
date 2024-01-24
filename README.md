@@ -50,8 +50,8 @@ The target address may be that of your bookkeeper or bookkeeping SaaS.
 If you're using a different architecture than x86-64, or different library versions, you'll need to compile `deskew` yourself:
 
 ```sh
-sudo apt-get install libopencv-dev g++
-g++ -O2 -std=c++11 -lopencv_imgproc -lopencv_highgui -lopencv_photo -lopencv_core -o deskew deskew.cpp
+sudo apt install libopencv-imgproc-dev libopencv-highgui-dev libopencv-photo-dev libopencv-core-dev
+g++ -O2 -std=c++11 -lopencv_imgproc -lopencv_highgui -lopencv_photo -lopencv_core -lopencv_imgcodecs -o deskew deskew.cpp
 ```
 
 
